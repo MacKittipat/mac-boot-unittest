@@ -28,6 +28,7 @@ public class EcbCurrencyConverterService implements CurrencyConverterService {
                         ExchangeRateApiResponse.class);
 
         if (exchangeRateApiResponse == null ||
+                exchangeRateApiResponse.getRates() == null ||
                 exchangeRateApiResponse.getRates().size() == 0 ||
                 exchangeRateApiResponse.getRates().get(targetCurrency) == null) {
             throw new CurrencyConverterException("Cannot convert rate from " + baseCurrency + " to " + targetCurrency);
